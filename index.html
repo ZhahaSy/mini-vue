@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='wrap'></div>
+    <div id='wrap1'></div>
+    <div id='name'></div>
+    <button id='btn'>add hello</button>
+</body>
+<script src="./cleanup.js" ></script>
+<script src="./index.js" ></script>
+<script >
+    // btn.addEventListener('click', () => {
+    //     wrap.innerHTML += 'world'
+    // });
+
+    // import { Reactive, effect } from ''
+
+
+    // we want 
+    const data = {
+        text: 'hello',
+        name: 'limingxin',
+        isUseText: true,
+    }
+
+    const obj = Reactive(data)
+
+    effect(function() {
+        console.log(11111);
+        wrap.innerHTML = obj.isUseText ? obj.text : '不用Text'
+    })
+
+    // effect(function() {
+    //     wrap1.innerHTML = obj.name
+    // })
+
+
+    setTimeout(() => {
+        obj.isUseText = false
+    }, 1000)
+
+    setTimeout(() => {
+        obj.text = 'Hi～'
+    }, 1000)
+    
+
+
+    // TODO
+    //1. 收集 不同的数据的 不同响应语句
+    //. 收集 相同数据的不同的属性的 不同响应语句
+    //2. 收集 单个数据的  不同响应语句
+
+    
+    // setInterval(() => {
+    //     obj.text = Date.now()
+    // }, 1000)
+
+
+    // 1 data 变没变  set
+
+    // 2 谁需要知道 data变了
+
+
+</script>
+</html>
