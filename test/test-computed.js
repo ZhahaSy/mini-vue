@@ -17,3 +17,4 @@ effect(() => {
 })
 
 console.log(obj.count++);
+console.log(obj.count++);

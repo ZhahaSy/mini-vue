@@ -8,6 +8,7 @@ export default function computed(fn) {
     const effctFn = effect(fn, {
         lazy:  true,
         scheduler: function() {
+            
             dirty = true
             trigger(result, value)
         }
@@ -15,6 +16,7 @@ export default function computed(fn) {
 
     const result = {
         get value () {
+            console.log('get');
             if (dirty) {
                 value = effctFn()
                 dirty = false
